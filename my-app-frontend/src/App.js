@@ -1,18 +1,13 @@
 import './App.css';
+import Header from './components/header/Header';
 
 function App() {
   return (
     <div >
       {/* header component */}
-      <header>
-        <p className="black">Oishii Me Up</p>
-
-        
-          <button>Login</button>
-          <button>Turn off the Lights</button>
-  
-
-      </header>
+      <Header/>
+      
+      
 {/* main container component */}
       <body>
         <div className="main_container">
