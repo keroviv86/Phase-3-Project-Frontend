@@ -1,12 +1,14 @@
+import React from 'react';
 import './App.css';
 import Header from './components/header/Header';
+import {BrowserRouter as Routes, Route, Switch} from "react-router-dom";
 
 function App() {
   return (
     <div >
       {/* header component */}
       <Header/>
-      
+     
       
 {/* main container component */}
       <body>
