@@ -12,19 +12,19 @@ import { Icon } from "@material-ui/core";
 function SwipeButton(){
     return(
         <div className="swipe-buttons">
-            <IconButton>
+            <IconButton className="repeat">
                 <ReplayIcon/>
             </IconButton>
-            <IconButton>
+            <IconButton className= "left">
                 <CloseIcon/>
             </IconButton>
-            <IconButton>
+            <IconButton className = "star">
                 <StarRateIcon/>
             </IconButton>
-            <IconButton>
+            <IconButton className="right">
                 <FavoriteIcon/>
             </IconButton>
-            <IconButton>
+            <IconButton className="flash">
                 <FlashOnIcon/>
             </IconButton>
 
