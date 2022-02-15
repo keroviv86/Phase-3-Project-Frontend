@@ -38,6 +38,10 @@ img {
     margin-top: 5vh;
 }
 
+.cardName{
+    color:white
+}
+
 .swipe{
     position: absolute;
 }
@@ -56,3 +60,11 @@ li:hover {
     color: white;
   }
 
+/* BUTTONS */
+.swipe-buttons{
+    position: fixed;
+    bottom: 10vh;
+    width: 80%;
+    display:flex;
+    justify-content: space-evenly;
+}

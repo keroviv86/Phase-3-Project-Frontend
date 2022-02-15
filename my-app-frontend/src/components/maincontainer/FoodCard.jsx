@@ -11,7 +11,7 @@ function FoodCard({ food, name, restaurant, image, category }){
             <div 
             style= {{backgroundImage: `url(${image})`}}
             className="card">
-                <h3>{name}</h3>
+                <h3 className="cardName">{name}</h3>
         
              </div>
         </div>

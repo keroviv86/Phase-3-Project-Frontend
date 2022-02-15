@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import FoodCard from './FoodCard'
+import SwipeButton from './SwipeButton';
 
 function FoodCollection({foodItems}) {
     console.log(foodItems)
@@ -21,6 +22,7 @@ function FoodCollection({foodItems}) {
             <h1>Oishii Card</h1>
             <div className="food-container">
               {foodItemFun}
+            <SwipeButton/>
             </div>
             
         </div>
