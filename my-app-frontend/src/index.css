@@ -1,0 +1,58 @@
+.black {
+    text-align: center;
+    font: black;
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    margin: 0;
+}
+
+.dark {
+    color: #dcdcdc;
+    background-color: #292929;
+  }
+
+img {
+    
+}
+
+.card{
+    position: relative;
+    width: 600px;
+    padding: 5px;
+    padding-bottom: 20px;
+    max-width: 85vw;
+    height:50vh;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+}
+
+.food-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+}
+
+.swipe{
+    position: absolute;
+}
+
+.nav_bar {
+    background: pink;
+    text-shadow: none;
+    box-shadow: 0 3px orange;
+    transform: translateY(2px);
+    font-weight: bold;
+    margin-right: 80%;
+}
+
+li:hover {
+    background-color: #111;
+    color: white;
+  }
+
