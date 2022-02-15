@@ -18,9 +18,9 @@ export default function Header() {
     <div>
         <header className="header">
                 
-                <button><a href="#/nav"><Link to="/login">Login</Link></a></button>
+                <button><Link to="/login" style={{ textDecoration: 'none', color: 'black'}}>Login</Link></button>
                 <button className="dark-mode-btn" onClick={myFunction}>{isClicked ? "☾" : "☼"}</button>
-                <p className="black"><a href="#/nav"><Link to="/foods">Oishii Me Up</Link></a></p>
+                <p className="black"><Link to="/foods"  style={{ textDecoration: 'none', color: 'white'}}>Oishii Me Up</Link></p>
         </header>
 
     </div>
