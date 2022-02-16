@@ -3,7 +3,7 @@ import FoodCard from './FoodCard';
 import SwipeButton from './SwipeButton';
 
 
-function FoodCollection({displayArr, position, setPosition, handleMoreFood, handleBack, foodItems, setFoods, burgerItems, setBurgerCount, ramenItems,setRamenCount, pizzaItems, setPizzaCount, tacoItems, setTacoCount, pastryItems,setPastryCount}) {
+function FoodCollection({cart,setCart, displayArr, handleMoreFood, handleBack, foodItems}) {
     // console.log(foodItems)
     // const [position, setPosition]= useState(1)
 
@@ -45,6 +45,10 @@ function FoodCollection({displayArr, position, setPosition, handleMoreFood, hand
             <SwipeButton
             handleMoreFood={handleMoreFood}
             handleBack={handleBack}
+            foodItems={foodItems}
+            cart={cart}
+            setCart={setCart}
+        
             />
             </div>
             

@@ -1,6 +1,7 @@
 import React from 'react'
+import SwipeButton from './SwipeButton';
 
-function FoodCard({ food, name, restaurant, image, category }){
+function FoodCard({ id,food, name, restaurant, image, category }){
     // console.log(food)
     // console.log(name)
     // console.log(restaurant)
@@ -12,7 +13,6 @@ function FoodCard({ food, name, restaurant, image, category }){
             style= {{backgroundImage: `url(${image})`}}
             className="card">
                 <h3 className="cardName">{name}</h3>
-        
              </div>
         </div>
         

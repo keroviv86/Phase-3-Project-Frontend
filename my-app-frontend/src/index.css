@@ -1,14 +1,20 @@
-.black {
+/* html {
+background-color: linear-gradient(red , lightgrey);
+} */
+
+.title {
     text-align: center;
-    font: black;
-    background-color: pink;
+    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
+    /* color: white; */
     margin: 0;
+    font-weight: bold;
+    text-shadow: 3px 3px pink;
+    font-size: 40px;
 }
 
 .dark {
@@ -42,14 +48,6 @@
     position: absolute;
 } */
 
-.nav_bar {
-    background: pink;
-    text-shadow: none;
-    box-shadow: 0 3px orange;
-    transform: translateY(2px);
-    font-weight: bold;
-    margin-right: 80%;
-}
 
 li:hover {
     background-color: #111;
@@ -90,3 +88,73 @@ li:hover {
     padding: 1vw !important;
     color: #915dd1 !important
 }
+
+.login-button{
+    float: right;
+    padding: 10px;
+    margin-top: 5px ;
+    margin-right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    border: none;
+    text-align: center;
+    border-radius: 20px;
+    background-color: linear-gradient(pink , cyan) !important;
+}
+
+.dark-mode-btn {
+    float: right;
+    padding: 4px;
+    margin-top: 5px ;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    text-align: center;
+    border-radius: 20px;
+    background-color: linear-gradient(pink , cyan) !important;
+}
+
+
+/* NAVBAR */
+
+#sidebar {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    background: orange;
+    left: -300px;
+    transition: 0.4s;
+    z-index:1;
+    text-decoration: 'none'
+  }
+  
+  #sidebar ul li {
+    list-style: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 26px 24px;
+    text-decoration: 'none'
+  }
+  
+  #sidebar .toggle-btn {
+    position: absolute;
+    top: 30px;
+    left: 330px;
+  }
+  
+  .toggle-btn span {
+    width: 45px;
+    height: 4px;
+    background: #000;
+    display: block;
+    margin-top: 4px;
+  }
+  
+  #sidebar.active {
+    left: 0;
+  }
+
+  .nav_bar_burger {
+      text-decoration: none;
+  }

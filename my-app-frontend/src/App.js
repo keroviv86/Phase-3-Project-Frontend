@@ -12,6 +12,7 @@ import Ramen from './components/maincontainer/foodcategories/Ramen';
 import Taco from './components/maincontainer/foodcategories/Taco';
 import Pastry from './components/maincontainer/foodcategories/Pastry';
 import FoodCard from './components/maincontainer/FoodCard';
+import Favorites from './components/maincontainer/foodcategories/Favorites';
 
 import React, {useState, useEffect} from 'react';
 
@@ -29,11 +30,6 @@ function App() {
 
 
   // these hold the position in the array of foods
-  const [burgerCount, setBurgerCount]= useState(1)
-  const [ramenCount, setRamenCount]= useState(14)
-  const [pizzaCount, setPizzaCount] = useState(5)
-  const [tacoCount, setTacoCount]= useState(9)
-  const [pastryCount, setPastryCount] = useState(18)
   
   //fetching the data
   useEffect(()=> {
@@ -74,6 +70,7 @@ function App() {
 
   // SwipeButton Functionality
   const [position, setPosition]= useState(1)
+  const [cart, setCart]= useState([])
 
   const displayArr = food.slice(position,position+1)
   const burgerArr = burger.slice(position,position+1)
@@ -90,33 +87,40 @@ function App() {
       setPosition((prevPosition)=> (prevPosition-1) % food.length)
   }
 
+  function handleSuperLike(e){
+      e.addEventListener('click', )
+  }
+  
+  console.log(food)
+  const filteringFood = [...food]
+  .map((items)=>{
+    return
+    <Favorites 
+    key={items.id} 
+    id={items.id}
+    handleSuperLike={handleSuperLike}
+    />
+  })
+
+  const [id, setId] = useState([1]) //string interpolation later for #1
+  
+
 
   return (
     <div >
+      <NavBar/>
       <Header/>
       <Routes>
         <Route path="/login" element={<Login/>}/>
         <Route path="/foods" element={
         // <NavBar/>
           <FoodCollecton
-            position={position}
-            setPosition={setPosition}
             displayArr = {displayArr}
             handleMoreFood={handleMoreFood}
             handleBack={handleBack}
-
-          //passing down the food category array
-            // setFood={setFood}
-            // burgerItems={burger}
-            // setBurgerCount={setBurgerCount}
-            // ramenItems={ramenCount}
-            // setRamenCount={setRamenCount}
-            // pizzaItems={pizzaCount}
-            // setPizzaCount={setPizzaCount}
-            // tacoItems={tacoCount}
-            // setTacoCount={setTacoCount}
-            // pastryItems={pastryCount}
-            // setPastryCount={setPastryCount}
+            foodItems= {food}
+            cart ={cart}
+            setCart={setCart}
         />}/>
 
         {/* NavBar */}
@@ -128,6 +132,8 @@ function App() {
             burgerArr = {burgerArr}
             handleMoreFood={handleMoreFood}
             handleBack={handleBack}
+            cart={cart}
+            setCart={setCart}
             />}/>
       
         <Route path='/ramen' element={ 
@@ -168,30 +174,17 @@ function App() {
             handleMoreFood={handleMoreFood}
             handleBack={handleBack}
           />}/>
+        
+        <Route path='/favorites' element={
+        <Favorites
+        foodItems={food}
+        // handleSuperLike={handleSuperLike}
+        />}/>
 
       </Routes>
       
-      <NavBar/>
       
-      {/* <Header/>
-      <body>
-        <div className="main_container">
-          <FoodCollecton foodItems={food}/>
-          
-        </div>
-        
-        <div className="food_cards"> 
-          <div>
-            Food Card 
-            Restaurant name
-            Restaurant price
-            Restaurant likes
-            Like / Dislike Feature
-          </div>
-        </div>
-
-      </body> */}
-
+    
     </div>
   );
 }

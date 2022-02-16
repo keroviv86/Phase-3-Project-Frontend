@@ -9,11 +9,16 @@ import { Icon } from "@material-ui/core";
 
 
 
-function SwipeButton({handleMoreFood, handleBack}){
-    
-function click() {
-    console.log("hello")
-}
+function SwipeButton({id, food, cart, setCart, handleMoreFood, handleBack, handleSuperLike}){
+    // const superLike = handleOnClick(e)
+
+   
+
+
+    function handleOnClick(){
+        console.log(id)
+    }
+
 
     return(
         <div className="swipe-buttons">
@@ -23,7 +28,7 @@ function click() {
             <IconButton className= "left">
                 <CloseIcon/>
             </IconButton>
-            <IconButton className = "star">
+            <IconButton onClick={handleOnClick} className="star">
                 <StarRateIcon/>
             </IconButton>
             <IconButton 

@@ -2,14 +2,34 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 
 export default function NavBar() {
+  function show() {
+    // document.getElementById('sidebar')
+    console.log("hi")
+    document.getElementById('sidebar').classList.toggle('active');
+  }
+
   return (
-    <div>
+    <div id="sidebar">
+          <div class="toggle-btn" onClick={show}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+      
         <div className="nav_bar"> 
-          Cuisines
           <ul>
-            <NavLink to="/" exact className="button"> All Cuisines </NavLink>
             <li>
-            <NavLink to="/burger" exact className="button"> Burgers </NavLink>
+            <NavLink activeClassName="nav_bar_burger" to="/" exact className="button" activeStyle={{ textDecoration: 'none' }}> All Cuisines </NavLink>
+            </li>
+            <li>
+            <NavLink to="/favorites" exact className="button"> Favorites </NavLink>
+            </li>
+            <li>
+            <NavLink to="/burger" exact className="button"
+            activeStyle={{
+              textDecoration: 'none'
+              }}
+            > Burgers </NavLink>
             </li>
             <li>
             <NavLink to="/pizza" exact className="button"> Pizzas </NavLink>
@@ -23,6 +43,7 @@ export default function NavBar() {
             <li>
             <NavLink to="/taco" exact className="button"> Tacos </NavLink>
             </li>
+
          </ul>
         </div>
 
