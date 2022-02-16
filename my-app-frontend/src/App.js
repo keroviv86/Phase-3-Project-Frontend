@@ -69,7 +69,7 @@ function App() {
   }, [])  
 
   // SwipeButton Functionality
-  const [position, setPosition]= useState(1)
+  const [position, setPosition]= useState(0)
   const [cart, setCart]= useState([])
 
   const displayArr = food.slice(position,position+1)
@@ -81,7 +81,7 @@ function App() {
 
   function handleMoreFood(foodItems){
       setPosition((prevPosition)=>(prevPosition+1) % food.length)
-      let id = position+1
+      let id = position
       console.log(foodItems[id])
       setCart([...cart, {...foodItems[id]}])
       console.log(cart)
@@ -90,7 +90,7 @@ function App() {
   function handleBack(e){
       setPosition((prevPosition)=> (prevPosition-1) % food.length)
   }
-  
+
   return (
     <div >
       <NavBar/>
