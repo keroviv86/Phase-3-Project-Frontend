@@ -2,14 +2,16 @@ import React, { useState } from 'react'
 import SwipeButton from '../SwipeButton'
 
 function Favorites({foodItems}) {
-
+    function handleClick(){
+        console.log("hi")
+    }
 
 
   return (
     <div>
         <p>example-this is the best foood </p>
         <SwipeButton
-        
+        handleClick={handleClick}
         />
     </div>
   )

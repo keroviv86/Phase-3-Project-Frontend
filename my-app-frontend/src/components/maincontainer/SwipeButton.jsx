@@ -9,14 +9,14 @@ import { Icon } from "@material-ui/core";
 
 
 
-function SwipeButton({id, food, cart, setCart, handleMoreFood, handleBack, handleSuperLike}){
+function SwipeButton({handleClick,id, food, cart, setCart, handleMoreFood, handleBack, handleSuperLike}){
     // const superLike = handleOnClick(e)
 
    
 
 
     function handleOnClick(){
-        console.log(id)
+        handleClick()
     }
 
 
