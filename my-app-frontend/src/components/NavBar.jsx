@@ -12,13 +12,16 @@ export default function NavBar() {
             <NavLink to="/burger" exact className="button"> Burgers </NavLink>
             </li>
             <li>
-            <NavLink to="/pizza" exact className="button"> Pizza </NavLink>
+            <NavLink to="/pizza" exact className="button"> Pizzas </NavLink>
             </li>
             <li>
             <NavLink to="/ramen" exact className="button"> Ramen </NavLink>
             </li>
             <li>
-            <NavLink to="/pasteries" exact className="button"> Pastries </NavLink>
+            <NavLink to="/pastry" exact className="button"> Pastries </NavLink>
+            </li>
+            <li>
+            <NavLink to="/taco" exact className="button"> Tacos </NavLink>
             </li>
          </ul>
         </div>

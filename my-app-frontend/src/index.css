@@ -16,10 +16,6 @@
     background-color: #292929;
   }
 
-img {
-    
-}
-
 .card{
     position: relative;
     width: 600px;
@@ -42,9 +38,9 @@ img {
     color:white
 }
 
-.swipe{
+/* .swipe{
     position: absolute;
-}
+} */
 
 .nav_bar {
     background: pink;
