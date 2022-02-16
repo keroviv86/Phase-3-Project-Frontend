@@ -1,5 +1,7 @@
 import React from 'react'
 import FoodCard from '../FoodCard';
+import SwipeButton from '../SwipeButton';
+
 function Pastry({pastryItems}) {
   const pastryItemFun = pastryItems.map((food)=> (
     <FoodCard
@@ -15,9 +17,11 @@ function Pastry({pastryItems}) {
     />
   ))
   return (
-    <div>
+    <div  className="food-container">
       <p>Pastry Nom Nom Nom</p>
       {pastryItemFun}
+      <SwipeButton/>
+      
     </div>
   )
 }

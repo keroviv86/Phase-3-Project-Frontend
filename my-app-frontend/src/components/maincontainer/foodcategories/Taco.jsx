@@ -1,5 +1,6 @@
-import React from 'react'
+import React from 'react';
 import FoodCard from '../FoodCard';
+import SwipeButton from '../SwipeButton';
 
 function Taco({tacoItems}) {
   const tacoItemFun = tacoItems.map((food)=> (
@@ -17,9 +18,10 @@ function Taco({tacoItems}) {
 ))
 
   return (
-    <div>
+    <div  className="food-container">
       Tacos estan muy ricos jaja
       {tacoItemFun}
+      <SwipeButton/>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import FoodCard from '../FoodCard';
+import SwipeButton from '../SwipeButton';
 
 function Pizza({pizzaItems}) {
   const pizzaItemFun = pizzaItems.map((food)=> (
@@ -17,9 +18,10 @@ function Pizza({pizzaItems}) {
 ))
 
   return (
-    <div>
+    <div  className="food-container">
       Pizza is yummmmy 
     {pizzaItemFun}
+    <SwipeButton/>
     </div>
   )
 }

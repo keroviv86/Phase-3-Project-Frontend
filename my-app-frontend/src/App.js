@@ -11,8 +11,7 @@ import Pizza from './components/maincontainer/foodcategories/Pizza';
 import Ramen from './components/maincontainer/foodcategories/Ramen';
 import Taco from './components/maincontainer/foodcategories/Taco';
 import Pastry from './components/maincontainer/foodcategories/Pastry';
-
-
+import FoodCard from './components/maincontainer/FoodCard';
 
 import React, {useState, useEffect} from 'react';
 
@@ -44,10 +43,10 @@ function App() {
   }, [])
 
   useEffect(()=> {
-    fetch(`http://localhost:9292/foods/burgers/${burgerCount}`)
+    fetch(`http://localhost:9292/foods/burgers`)
     .then(res=>res.json())
     .then(data=> setBurger(data))
-  }, [burgerCount])
+  }, [])
 
   useEffect(()=> {
     fetch('http://localhost:9292/foods/ramens')
@@ -71,15 +70,21 @@ function App() {
     fetch('http://localhost:9292/foods/pastries')
     .then(res=>res.json())
     .then(data=> setPastry(data))
-  }, [])
+  }, [])  
 
-  // useEffect(()=> {
-  //   fetch('http://localhost:9292/burgers/${burgerCount}')
-  //   .then(res=>res.json())
-  //   .then(data=> setBurgerCount(data))
-  // }, [])
+  // SwipeButton Functionality
+  const [position, setPosition]= useState(1)
 
-  
+  const displayArr = food.slice(position,position+1)
+
+  function handleMoreFood(e){
+      setPosition((prevPosition)=>(prevPosition+1) % food.length)
+  }
+
+  function handleBack(e){
+      setPosition((prevPosition)=> (prevPosition-1) % food.length)
+  }
+
 
   return (
     <div >
@@ -88,29 +93,33 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/foods" element={
         // <NavBar/>
-        <FoodCollecton
+          <FoodCollecton
+            position={position}
+            setPosition={setPosition}
+            displayArr = {displayArr}
+            // foodToRender={foodToRender()}
+            handleMoreFood={handleMoreFood}
+            handleBack={handleBack}
 
-        //passing down the food category array
-          foodItems={food}
-          setFood={setFood}
-          burgerItems={burger}
-          setBurgerCount={setBurgerCount}
-          ramenItems={ramenCount}
-          setRamenCount={setRamenCount}
-          pizzaItems={pizzaCount}
-          setPizzaCount={setPizzaCount}
-          tacoItems={tacoCount}
-          setTacoCount={setTacoCount}
-          pastryItems={pastryCount}
-          setPastryCount={setPastryCount}
+          //passing down the food category array
+            foodItems={food}
+            // setFood={setFood}
+            // burgerItems={burger}
+            // setBurgerCount={setBurgerCount}
+            // ramenItems={ramenCount}
+            // setRamenCount={setRamenCount}
+            // pizzaItems={pizzaCount}
+            // setPizzaCount={setPizzaCount}
+            // tacoItems={tacoCount}
+            // setTacoCount={setTacoCount}
+            // pastryItems={pastryCount}
+            // setPastryCount={setPastryCount}
         />}/>
 
         {/* NavBar */}
         <Route path='/burger' element={
-           <Burger
-           burgerItems={burger}
-           burgerCount={burgerCount}
-          setBurgerCount={setBurgerCount}
+          <Burger 
+          burgerItems={burger}
             />}/>
       
         <Route path='/ramen' element={ 

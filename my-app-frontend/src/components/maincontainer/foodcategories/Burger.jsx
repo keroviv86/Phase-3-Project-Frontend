@@ -1,10 +1,11 @@
 import React from 'react'
 import FoodCard from '../FoodCard';
+import SwipeButton from '../SwipeButton';
 
 function Burger({burgerItems}) {
   const burgerItemFun = burgerItems.map((food)=> (
     <FoodCard
-        className="swipe"
+        className="card"
         key={food.id}
         id={food.id}
         food={food}
@@ -17,9 +18,10 @@ function Burger({burgerItems}) {
 ))
 
   return (
-    <div>
+    <div className="food-container">
       <p>Burger nom nom nom </p>
       {burgerItemFun}
+      <SwipeButton/>
     </div>
   )
 }

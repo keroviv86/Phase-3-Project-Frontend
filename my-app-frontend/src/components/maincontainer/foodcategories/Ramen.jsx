@@ -1,5 +1,7 @@
 import React from 'react'
 import FoodCard from '../FoodCard';
+import SwipeButton from '../SwipeButton';
+
 function Ramen({ramenItems}) {
   const ramenItemFun = ramenItems.map((food)=>(
     <FoodCard
@@ -15,9 +17,10 @@ function Ramen({ramenItems}) {
     />
   ))
   return (
-    <div>
+    <div  className="food-container">
       <p>Ramen nopm nom nom</p>
       {ramenItemFun}
+      <SwipeButton/>
     </div>
   )
 }
