@@ -4,24 +4,6 @@ import SwipeButton from './SwipeButton';
 
 
 function FoodCollection({cart,setCart, displayArr, handleMoreFood, handleBack, foodItems}) {
-    // console.log(foodItems)
-    // const [position, setPosition]= useState(1)
-
-    // function foodToRender(){
-    //     const displayArr = foodItems.slice(position,position+1)
-
-    //     return displayArr
-    // }
-
-    // function handleMoreFood(e){
-    //     setPosition((prevPosition)=>(prevPosition+1) % foodItems.length)
-    // }
-
-    // function handleBack(e){
-    //     setPosition((prevPosition)=> (prevPosition-1) % foodItems.length)
-    // }
-
-
 
     const foodItemFun = displayArr.map((food)=> (
         <FoodCard
@@ -48,6 +30,7 @@ function FoodCollection({cart,setCart, displayArr, handleMoreFood, handleBack, f
             foodItems={foodItems}
             cart={cart}
             setCart={setCart}
+            foodItems={foodItems}
         
             />
             </div>

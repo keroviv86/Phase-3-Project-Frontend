@@ -1,18 +1,23 @@
 import React, { useState } from 'react'
 import SwipeButton from '../SwipeButton'
+import FavoriteList from './FavoriteList'
 
-function Favorites({foodItems}) {
-    function handleClick(){
-        console.log("hi")
-    }
+function Favorites({cartItems}) {
+    const cartItemFun = cartItems.map((cartFood)=>(
+      <FavoriteList
+      key= {cartFood.id}
+      id={cartFood.id}
+      name={cartFood.item_name}
+      restaurant={cartFood.restaurant_name}
+      image={cartFood.image}
+      category={cartFood.category}
+      />
+    ))
 
 
   return (
     <div>
-        <p>example-this is the best foood </p>
-        <SwipeButton
-        handleClick={handleClick}
-        />
+        {cartItemFun}
     </div>
   )
 }

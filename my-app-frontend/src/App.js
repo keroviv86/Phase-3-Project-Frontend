@@ -79,33 +79,18 @@ function App() {
   const ramenArr = ramen.slice(position,position+1)
   const pastryArr = pastry.slice(position,position+1)
 
-  function handleMoreFood(e){
+  function handleMoreFood(foodItems){
       setPosition((prevPosition)=>(prevPosition+1) % food.length)
+      let id = position+1
+      console.log(foodItems[id])
+      setCart([...cart, {...foodItems[id]}])
+      console.log(cart)
   }
 
   function handleBack(e){
       setPosition((prevPosition)=> (prevPosition-1) % food.length)
   }
-
-  function handleSuperLike(e){
-      e.addEventListener('click', )
-  }
   
-  console.log(food)
-  const filteringFood = [...food]
-  .map((items)=>{
-    return
-    <Favorites 
-    key={items.id} 
-    id={items.id}
-    handleSuperLike={handleSuperLike}
-    />
-  })
-
-  const [id, setId] = useState([1]) //string interpolation later for #1
-  
-
-
   return (
     <div >
       <NavBar/>
@@ -177,7 +162,7 @@ function App() {
         
         <Route path='/favorites' element={
         <Favorites
-        foodItems={food}
+        cartItems={cart}
         // handleSuperLike={handleSuperLike}
         />}/>
 
