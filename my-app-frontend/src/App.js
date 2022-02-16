@@ -76,6 +76,11 @@ function App() {
   const [position, setPosition]= useState(1)
 
   const displayArr = food.slice(position,position+1)
+  const burgerArr = burger.slice(position,position+1)
+  const pizzaArr = pizza.slice(position,position+1)
+  const tacoArr = taco.slice(position,position+1)
+  const ramenArr = ramen.slice(position,position+1)
+  const pastryArr = pastry.slice(position,position+1)
 
   function handleMoreFood(e){
       setPosition((prevPosition)=>(prevPosition+1) % food.length)
@@ -97,12 +102,10 @@ function App() {
             position={position}
             setPosition={setPosition}
             displayArr = {displayArr}
-            // foodToRender={foodToRender()}
             handleMoreFood={handleMoreFood}
             handleBack={handleBack}
 
           //passing down the food category array
-            foodItems={food}
             // setFood={setFood}
             // burgerItems={burger}
             // setBurgerCount={setBurgerCount}
@@ -119,26 +122,51 @@ function App() {
         {/* NavBar */}
         <Route path='/burger' element={
           <Burger 
-          burgerItems={burger}
+            burgerItems={burger}
+            position={position}
+            setPosition={setPosition}
+            burgerArr = {burgerArr}
+            handleMoreFood={handleMoreFood}
+            handleBack={handleBack}
             />}/>
       
         <Route path='/ramen' element={ 
           <Ramen
-          ramenItems={ramen}
+            ramenItems={ramen}
+            position={position}
+            setPosition={setPosition}
+            ramenArr = {ramenArr}
+            handleMoreFood={handleMoreFood}
+            handleBack={handleBack}
           />}/>
 
         <Route path='/pizza' element={ 
         <Pizza
-        pizzaItems={pizza}
+            pizzaItems={pizza}
+            position={position}
+            setPosition={setPosition}
+            pizzaArr = {pizzaArr}
+            handleMoreFood={handleMoreFood}
+            handleBack={handleBack}
         />}/>
 
         <Route path='/taco' element={ <Taco
-        tacoItems={taco}
+            tacoItems={taco}
+            position={position}
+            setPosition={setPosition}
+            tacoArr = {tacoArr}
+            handleMoreFood={handleMoreFood}
+            handleBack={handleBack}
         />}/>
 
         <Route path='/pastry' element={ 
           <Pastry
             pastryItems={pastry}
+            position={position}
+            setPosition={setPosition}
+            pastryArr = {pastryArr}
+            handleMoreFood={handleMoreFood}
+            handleBack={handleBack}
           />}/>
 
       </Routes>

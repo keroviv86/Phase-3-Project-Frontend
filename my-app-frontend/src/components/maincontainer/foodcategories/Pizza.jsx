@@ -2,8 +2,8 @@ import React from 'react'
 import FoodCard from '../FoodCard';
 import SwipeButton from '../SwipeButton';
 
-function Pizza({pizzaItems}) {
-  const pizzaItemFun = pizzaItems.map((food)=> (
+function Pizza({pizzaItems, pizzaArr, handleMoreFood, handleBack}) {
+  const pizzaItemFun = pizzaArr.map((food)=> (
     <FoodCard
         className="swipe"
         key={food.id}
@@ -21,7 +21,10 @@ function Pizza({pizzaItems}) {
     <div  className="food-container">
       Pizza is yummmmy 
     {pizzaItemFun}
-    <SwipeButton/>
+    <SwipeButton
+    handleMoreFood={handleMoreFood}
+    handleBack={handleBack}/>
+    
     </div>
   )
 }

@@ -2,8 +2,8 @@ import React from 'react'
 import FoodCard from '../FoodCard';
 import SwipeButton from '../SwipeButton';
 
-function Pastry({pastryItems}) {
-  const pastryItemFun = pastryItems.map((food)=> (
+function Pastry({pastryItems, handleMoreFood, handleBack, pastryArr }) {
+  const pastryItemFun = pastryArr.map((food)=> (
     <FoodCard
         className="swipe"
         key={food.id}
@@ -20,7 +20,9 @@ function Pastry({pastryItems}) {
     <div  className="food-container">
       <p>Pastry Nom Nom Nom</p>
       {pastryItemFun}
-      <SwipeButton/>
+      <SwipeButton
+      handleMoreFood={handleMoreFood}
+      handleBack={handleBack}/>
       
     </div>
   )

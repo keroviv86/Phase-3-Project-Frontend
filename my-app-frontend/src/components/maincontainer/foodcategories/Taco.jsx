@@ -2,8 +2,8 @@ import React from 'react';
 import FoodCard from '../FoodCard';
 import SwipeButton from '../SwipeButton';
 
-function Taco({tacoItems}) {
-  const tacoItemFun = tacoItems.map((food)=> (
+function Taco({tacoItems, handleMoreFood, handleBack, tacoArr}) {
+  const tacoItemFun = tacoArr.map((food)=> (
     <FoodCard
         className="swipe"
         key={food.id}
@@ -21,7 +21,9 @@ function Taco({tacoItems}) {
     <div  className="food-container">
       Tacos estan muy ricos jaja
       {tacoItemFun}
-      <SwipeButton/>
+      <SwipeButton
+      handleMoreFood={handleMoreFood}
+      handleBack={handleBack}/>
     </div>
   )
 }
