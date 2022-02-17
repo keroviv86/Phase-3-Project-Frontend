@@ -1,7 +1,8 @@
 import React from 'react'
 
 
-function FavoriteListItem({id, name,restaurant, image, category}){
+function FavoriteListItem({name,restaurant, image, id, phone, address, handleFavClick}){
+
     return (
         <div>
             {/* <ul class="list">
@@ -9,7 +10,7 @@ function FavoriteListItem({id, name,restaurant, image, category}){
             </ul> */}
             <article className="leaderboard"/>
                 <main className="profiles"/>
-                     <article className="profile">
+                     <article className="profile" onClick= {()=>handleFavClick(name,restaurant,phone,address)}>
                          <img src={image} alt={name} className="picture"/>
                         <span class="restaurant">{restaurant}</span>
                         <span class="name">{name}</span>
