@@ -25,6 +25,7 @@ function Burger({handleSuperLike, cart, setCart, burgerItems, handleMoreFood, ha
       handleSuperLike={handleSuperLike}
       handleMoreFood={handleMoreFood}
       handleBack={handleBack}
+      cart ={cart}
       />
        
     </div>

@@ -9,12 +9,15 @@ import { Icon } from "@material-ui/core";
 
 
 
-function SwipeButton({user, foodItems, handleMoreFood, handleBack, handleSuperLike}){
-    const[currentUser, setCurrentUser] =useState(user[0])
-    console.log(currentUser)
+function SwipeButton({users, foodItems, handleMoreFood, handleBack, handleSuperLike}){
+    const[currentUser, setCurrentUser] =useState(users)
+    // console.log(currentUser)
+    
+    
+    
 
    function onHandleMoreFood(){
-       handleMoreFood(foodItems)
+       handleMoreFood(foodItems, currentUser, setCurrentUser)
    }
 
 

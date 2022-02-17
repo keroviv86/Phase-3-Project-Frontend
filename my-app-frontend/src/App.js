@@ -11,10 +11,9 @@ import Pizza from './components/maincontainer/foodcategories/Pizza';
 import Ramen from './components/maincontainer/foodcategories/Ramen';
 import Taco from './components/maincontainer/foodcategories/Taco';
 import Pastry from './components/maincontainer/foodcategories/Pastry';
-import FoodCard from './components/maincontainer/FoodCard';
 import Favorites from './components/maincontainer/foodcategories/Favorites';
 
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useDebugValue} from 'react';
 
 
 function App() {
@@ -27,7 +26,6 @@ function App() {
   const [pizza, setPizza] = useState([])
   const [pastry, setPastry] = useState([])
   const [taco, setTaco] = useState([])
-  const [user, setUser] = useState([])
 
 
   // these hold the position in the array of foods
@@ -70,9 +68,9 @@ function App() {
   }, [])  
 
   useEffect(()=> {
-    fetch('http://localhost:9292/user/')
+    fetch('http://localhost:9292/users/1')
     .then(res=>res.json())
-    .then(data=> setUser(data))
+    .then(data=> setUsers(data))
   }, [])  
 
 
@@ -82,6 +80,8 @@ function App() {
   // SwipeButton Functionality
   const [position, setPosition]= useState(0)
   const [cart, setCart]= useState([])
+  const [users, setUsers] = useState([])
+
 
   const displayArr = food.slice(position,position+1)
   const burgerArr = burger.slice(position,position+1)
@@ -90,13 +90,20 @@ function App() {
   const ramenArr = ramen.slice(position,position+1)
   const pastryArr = pastry.slice(position,position+1)
 
-  function handleMoreFood(foodItems){
+  function handleMoreFood(foodItems, currentUser, setCurrentUser) {
       setPosition((prevPosition)=>(prevPosition+1) % food.length)
       let id = position
-      console.log(foodItems[id])
-      setCart([...cart, {...foodItems[id]}])
-      console.log(cart)
+      // console.log(foodItems[id])
+      setCart([...cart, foodItems[id]])
+      // console.log(cart)
+      // setCurrentUser([...currentUser, {likes: foodItems[id]}])
+      const allLikes = [...users['foods'], foodItems[id]]
+      const addedToUsers= {...users, likes: allLikes}
+      setUsers(addedToUsers)
+      console.log(users)
+     
   }
+  
 
   function handleBack(e){
       setPosition((prevPosition)=> (prevPosition-1) % food.length)
@@ -117,7 +124,8 @@ function App() {
             foodItems= {food}
             cart ={cart}
             setCart={setCart}
-            user={user}
+
+            users={users}
         />}/>
 
         {/* NavBar */}

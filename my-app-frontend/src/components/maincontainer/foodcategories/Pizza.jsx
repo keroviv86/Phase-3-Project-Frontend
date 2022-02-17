@@ -19,7 +19,6 @@ function Pizza({pizzaItems, pizzaArr, handleMoreFood, handleBack}) {
 
   return (
     <div  className="food-container">
-      Pizza is yummmmy 
     {pizzaItemFun}
     <SwipeButton
     handleMoreFood={handleMoreFood}
