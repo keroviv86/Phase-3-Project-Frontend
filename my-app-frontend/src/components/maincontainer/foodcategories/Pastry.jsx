@@ -18,7 +18,6 @@ function Pastry({pastryItems, handleMoreFood, handleBack, pastryArr }) {
   ))
   return (
     <div  className="food-container">
-      <p>Pastry Nom Nom Nom</p>
       {pastryItemFun}
       <SwipeButton
       handleMoreFood={handleMoreFood}

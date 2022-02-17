@@ -71,7 +71,7 @@ function App() {
             handleLike={handleLike}
             handleDislike={incrementPosition}
             handleBack={handleBack}
-            categoryText=""
+           
           />
         }/>
 
@@ -81,7 +81,7 @@ function App() {
             handleLike={handleLike}
             handleDislike={incrementPosition}
             handleBack={handleBack}
-            categoryText="Pizza"
+           
           />
         }/>
         
@@ -91,7 +91,7 @@ function App() {
             handleLike={handleLike}
             handleDislike={incrementPosition}
             handleBack={handleBack}
-            categoryText="Borgor"
+            
           />
         }/>
 
@@ -101,7 +101,7 @@ function App() {
             handleLike={handleLike}
             handleDislike={incrementPosition}
             handleBack={handleBack}
-            categoryText="Taco"
+            
           />
         }/>
 
@@ -111,7 +111,7 @@ function App() {
             handleLike={handleLike}
             handleDislike={incrementPosition}
             handleBack={handleBack}
-            categoryText="Pastries"
+            
           />
         }/>
 
@@ -122,7 +122,7 @@ function App() {
             handleDislike={incrementPosition}
             handleBack={handleBack}
             userData={userData}
-            categoryText="Ramen"
+           
           />
         }/>
 

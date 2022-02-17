@@ -1,5 +1,4 @@
 import React from 'react'
-import SwipeButton from './SwipeButton';
 
 function FoodCard({ id,food, name, restaurant, image, category }){
     // console.log(food)

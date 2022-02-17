@@ -3,7 +3,7 @@ import FoodCard from './FoodCard';
 import SwipeButton from './SwipeButton';
 
 
-function FoodCollection({displayArr, handleLike, handleDislike, handleBack, categoryText}) {
+function FoodCollection({displayArr, handleLike, handleDislike, handleBack}) {
     console.log(displayArr)
     const foodCardToDisplay = displayArr.map((food)=> (
         <FoodCard
@@ -23,7 +23,6 @@ function FoodCollection({displayArr, handleLike, handleDislike, handleBack, cate
         <div>
             <h1>Oishii Card</h1>
             <div className="food-container">
-            <p> {categoryText}</p>
             {foodCardToDisplay}
             <SwipeButton
                 handleDislike={handleDislike}

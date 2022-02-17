@@ -19,7 +19,6 @@ function Taco({tacoItems, handleMoreFood, handleBack, tacoArr}) {
 
   return (
     <div  className="food-container">
-      Tacos estan muy ricos jaja
       {tacoItemFun}
       <SwipeButton
       handleMoreFood={handleMoreFood}

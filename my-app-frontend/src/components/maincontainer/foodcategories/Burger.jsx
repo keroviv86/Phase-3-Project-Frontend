@@ -19,7 +19,6 @@ function Burger({handleSuperLike, cart, setCart, burgerItems, handleMoreFood, ha
 
   return (
     <div className="food-container">
-      <p>Burger nom nom nom </p>
       {burgerItemFun}
       <SwipeButton
       handleSuperLike={handleSuperLike}

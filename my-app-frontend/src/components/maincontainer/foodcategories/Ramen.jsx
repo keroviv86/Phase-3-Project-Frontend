@@ -18,7 +18,6 @@ function Ramen({ramenItems,ramenArr, handleMoreFood,handleBack}) {
   ))
   return (
     <div  className="food-container">
-      <p>Ramen nopm nom nom</p>
       {ramenItemFun}
       <SwipeButton
       handleMoreFood={handleMoreFood}
