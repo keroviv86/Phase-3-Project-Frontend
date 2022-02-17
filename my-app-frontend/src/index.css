@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+    font-size: 30px;
     /* color: white; */
     margin: 0;
     font-weight: bold;
@@ -111,14 +111,19 @@ li:hover {
 .dark-mode-btn {
     float: right;
     padding: 4px;
+    color: white;
     margin-top: 5px ;
     margin-right: 20px;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     border: none;
     text-align: center;
     border-radius: 20px;
-    background-color: linear-gradient(pink , cyan) !important;
+    background-color: rgb(255, 255, 255, 0.0);
+}
+
+.dark-mode-btn:hover {
+    color: #915dd1;
 }
 
 
@@ -126,12 +131,13 @@ li:hover {
 
 .nav-link {
     text-decoration: none;
-    color: #f1f4f7;
+    color: #62b4f9;
+    font-weight: bold;
   }
   
   .nav-link:hover {
     /* background-color: #915dd1; */
-    color: #7209b7;
+    color: #f29ffa;
   }
 
 #sidebar {
