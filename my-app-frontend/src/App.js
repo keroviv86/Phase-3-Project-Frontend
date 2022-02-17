@@ -6,11 +6,6 @@ import FoodCollecton from './components/maincontainer/FoodCollection';
 import Header from './components/header/Header';
 import NavBar from './components/NavBar';
 import Login from './components/header/Login';
-import Burger from './components/maincontainer/foodcategories/Burger';
-import Pizza from './components/maincontainer/foodcategories/Pizza';
-import Ramen from './components/maincontainer/foodcategories/Ramen';
-import Taco from './components/maincontainer/foodcategories/Taco';
-import Pastry from './components/maincontainer/foodcategories/Pastry';
 import Favorites from './components/maincontainer/foodcategories/Favorites';
 
 import React, {useState, useEffect, useDebugValue} from 'react';
@@ -19,172 +14,125 @@ import React, {useState, useEffect, useDebugValue} from 'react';
 function App() {
   // this is an array of all of the food
   const [food, setFood] = useState([])
+  const [category, setCategory] = useState('')
+  const [userData, setUserData] = useState({})
 
-  //an array of each food category/cuisine
-  const [burger, setBurger] = useState([])
-  const [ramen, setRamen] = useState([])
-  const [pizza, setPizza] = useState([])
-  const [pastry, setPastry] = useState([])
-  const [taco, setTaco] = useState([])
-
-
-  // these hold the position in the array of foods
-  
   //fetching the data
   useEffect(()=> {
-    fetch('http://localhost:9292/foods')
+    fetch('http://localhost:9292/foods/' + category)
     .then(res=>res.json())
-    .then(data=> setFood(data))
-  }, [])
-
-  useEffect(()=> {
-    fetch(`http://localhost:9292/foods/burgers`)
-    .then(res=>res.json())
-    .then(data=> setBurger(data))
-  }, [])
-
-  useEffect(()=> {
-    fetch('http://localhost:9292/foods/ramens')
-    .then(res=>res.json())
-    .then(data=> setRamen(data))
-  }, [])
-
-  useEffect(()=> {
-    fetch('http://localhost:9292/foods/pizzas')
-    .then(res=>res.json())
-    .then(data=> setPizza(data))
-  }, [])
-  
-  useEffect(()=> {
-    fetch('http://localhost:9292/foods/tacos')
-    .then(res=>res.json())
-    .then(data=> setTaco(data))
-  }, [])
-
-  useEffect(()=> {
-    fetch('http://localhost:9292/foods/pastries')
-    .then(res=>res.json())
-    .then(data=> setPastry(data))
-  }, [])  
+    .then(data=>setFood(data))
+  }, [category])
 
   useEffect(()=> {
     fetch('http://localhost:9292/users/1')
     .then(res=>res.json())
-    .then(data=> setUsers(data))
-  }, [])  
-
-
-
-
+    .then(data=> setUserData(data))
+  }, [])
 
   // SwipeButton Functionality
   const [position, setPosition]= useState(0)
   const [cart, setCart]= useState([])
-  const [users, setUsers] = useState([])
 
+  const displayArr = [food[position]]
 
-  const displayArr = food.slice(position,position+1)
-  const burgerArr = burger.slice(position,position+1)
-  const pizzaArr = pizza.slice(position,position+1)
-  const tacoArr = taco.slice(position,position+1)
-  const ramenArr = ramen.slice(position,position+1)
-  const pastryArr = pastry.slice(position,position+1)
+  function handleCategoryClick(clickedCategory) {
+    setCategory(clickedCategory)
+    setPosition(0)
+  }
 
-  function handleMoreFood(foodItems, currentUser, setCurrentUser) {
-      setPosition((prevPosition)=>(prevPosition+1) % food.length)
-      let id = position
-      // console.log(foodItems[id])
-      setCart([...cart, foodItems[id]])
-      // console.log(cart)
-      // setCurrentUser([...currentUser, {likes: foodItems[id]}])
-      const allLikes = [...users['foods'], foodItems[id]]
-      const addedToUsers= {...users, likes: allLikes}
-      setUsers(addedToUsers)
-      console.log(users)
+  function incrementPosition() {
+    setPosition((prevPosition)=>(prevPosition+1) % food.length)
+  }
+
+  function handleLike() {
+      incrementPosition()
+      setCart([...cart, food[position]])
+      const allFoods = [...userData['foods'], food[position]]
+      const addedToUsers= {...userData, foods: allFoods}
+      setUserData(addedToUsers)
+      console.log(userData)
      
   }
-  
 
   function handleBack(e){
-      setPosition((prevPosition)=> (prevPosition-1) % food.length)
+      setPosition((prevPosition)=> (prevPosition - 1) % food.length)
   }
 
   return (
     <div >
-      <NavBar/>
+      <NavBar handleClick={handleCategoryClick}/>
       <Header/>
       <Routes>
         <Route path="/login" element={<Login/>}/>
         <Route path="/foods" element={
-        // <NavBar/>
           <FoodCollecton
             displayArr = {displayArr}
-            handleMoreFood={handleMoreFood}
+            handleLike={handleLike}
+            handleDislike={incrementPosition}
             handleBack={handleBack}
-            foodItems= {food}
-            cart ={cart}
-            setCart={setCart}
+            categoryText=""
+          />
+        }/>
 
-            users={users}
-        />}/>
+        <Route path="/pizza" element={
+          <FoodCollecton
+            displayArr = {displayArr}
+            handleLike={handleLike}
+            handleDislike={incrementPosition}
+            handleBack={handleBack}
+            categoryText="Pizza"
+          />
+        }/>
+        
+        <Route path="/burger" element={
+          <FoodCollecton
+            displayArr = {displayArr}
+            handleLike={handleLike}
+            handleDislike={incrementPosition}
+            handleBack={handleBack}
+            categoryText="Borgor"
+          />
+        }/>
 
-        {/* NavBar */}
-        <Route path='/burger' element={
-          <Burger 
-            burgerItems={burger}
-            position={position}
-            setPosition={setPosition}
-            burgerArr = {burgerArr}
-            handleMoreFood={handleMoreFood}
+        <Route path="/taco" element={
+          <FoodCollecton
+            displayArr = {displayArr}
+            handleLike={handleLike}
+            handleDislike={incrementPosition}
             handleBack={handleBack}
-            cart={cart}
-            setCart={setCart}
-            />}/>
-      
-        <Route path='/ramen' element={ 
-          <Ramen
-            ramenItems={ramen}
-            position={position}
-            setPosition={setPosition}
-            ramenArr = {ramenArr}
-            handleMoreFood={handleMoreFood}
-            handleBack={handleBack}
-          />}/>
+            categoryText="Taco"
+          />
+        }/>
 
-        <Route path='/pizza' element={ 
-        <Pizza
-            pizzaItems={pizza}
-            position={position}
-            setPosition={setPosition}
-            pizzaArr = {pizzaArr}
-            handleMoreFood={handleMoreFood}
+        <Route path="/pastry" element={
+          <FoodCollecton
+            displayArr = {displayArr}
+            handleLike={handleLike}
+            handleDislike={incrementPosition}
             handleBack={handleBack}
-        />}/>
+            categoryText="Pastries"
+          />
+        }/>
 
-        <Route path='/taco' element={ <Taco
-            tacoItems={taco}
-            position={position}
-            setPosition={setPosition}
-            tacoArr = {tacoArr}
-            handleMoreFood={handleMoreFood}
+        <Route path="/ramen" element={
+          <FoodCollecton
+            displayArr = {displayArr}
+            handleLike={handleLike}
+            handleDislike={incrementPosition}
             handleBack={handleBack}
-        />}/>
+            userData={userData}
+            categoryText="Ramen"
+          />
+        }/>
 
-        <Route path='/pastry' element={ 
-          <Pastry
-            pastryItems={pastry}
-            position={position}
-            setPosition={setPosition}
-            pastryArr = {pastryArr}
-            handleMoreFood={handleMoreFood}
-            handleBack={handleBack}
-          />}/>
+        {/* burger pizza ramen taco pastry */}
         
         <Route path='/favorites' element={
-        <Favorites
-        cartItems={cart}
-        // handleSuperLike={handleSuperLike}
-        />}/>
+          <Favorites
+            cartItems={userData['foods']}
+          />
+        }/>
 
       </Routes>
       

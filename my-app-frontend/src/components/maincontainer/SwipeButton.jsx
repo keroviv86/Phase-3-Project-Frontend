@@ -1,4 +1,4 @@
-import React, {useState} from "react"; 
+import React from "react"; 
 import ReplayIcon from "@material-ui/icons/Replay";
 import CloseIcon from "@material-ui/icons/Close";
 import StarRateIcon from "@material-ui/icons/StarRate";
@@ -9,18 +9,9 @@ import { Icon } from "@material-ui/core";
 
 
 
-function SwipeButton({users, foodItems, handleMoreFood, handleBack, handleSuperLike}){
-    const[currentUser, setCurrentUser] =useState(users)
-    // console.log(currentUser)
+function SwipeButton({handleLike, handleDislike, handleBack}){
     
     
-    
-
-   function onHandleMoreFood(){
-       handleMoreFood(foodItems, currentUser, setCurrentUser)
-   }
-
-
 
 
     return(
@@ -28,18 +19,21 @@ function SwipeButton({users, foodItems, handleMoreFood, handleBack, handleSuperL
             <IconButton onClick={handleBack} className="repeat">
                 <ReplayIcon/>
             </IconButton>
-            <IconButton className= "left">
+
+            <IconButton onClick = {handleDislike} className= "left">
                 <CloseIcon/>
             </IconButton>
-            <IconButton onClick = {onHandleMoreFood} className="star">
+
+            <IconButton onClick = {handleLike} className="star">
                 <StarRateIcon/>
             </IconButton>
+
             <IconButton 
-            onClick={onHandleMoreFood} 
-            // onClick={click}
-            className="right">
+                onClick={handleLike} 
+                className="right">
                 <FavoriteIcon/>
             </IconButton>
+
             <IconButton className="flash">
                 <FlashOnIcon/>
             </IconButton>

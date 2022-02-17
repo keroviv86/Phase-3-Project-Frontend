@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import SwipeButton from '../SwipeButton'
-import FavoriteList from './FavoriteList'
+import FavoriteList from './FavoriteListItem'
 
 function Favorites({cartItems}) {
-    const cartItemFun = cartItems.map((cartFood)=>(
+    const favoritesListItems = cartItems.map((cartFood)=>(
       <FavoriteList
       key= {cartFood.id}
       id={cartFood.id}
@@ -17,7 +16,7 @@ function Favorites({cartItems}) {
 
   return (
     <div>
-        {cartItemFun}
+        {favoritesListItems}
     </div>
   )
 }

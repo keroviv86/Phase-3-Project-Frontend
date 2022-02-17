@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import FoodCard from './FoodCard';
 import SwipeButton from './SwipeButton';
 
 
-function FoodCollection({users,cart,setCart, displayArr, handleMoreFood, handleBack, foodItems}) {
-
-    const foodItemFun = displayArr.map((food)=> (
+function FoodCollection({displayArr, handleLike, handleDislike, handleBack, categoryText}) {
+    console.log(displayArr)
+    const foodCardToDisplay = displayArr.map((food)=> (
         <FoodCard
             className="swipe"
             key={food.id}
@@ -23,19 +23,14 @@ function FoodCollection({users,cart,setCart, displayArr, handleMoreFood, handleB
         <div>
             <h1>Oishii Card</h1>
             <div className="food-container">
-              {foodItemFun}
+            <p> {categoryText}</p>
+            {foodCardToDisplay}
             <SwipeButton
-            handleMoreFood={handleMoreFood}
-            handleBack={handleBack}
-            foodItems={foodItems}
-            cart={cart}
-            setCart={setCart}
-            foodItems={foodItems}
-            users={users}
-        
+                handleDislike={handleDislike}
+                handleLike={handleLike}
+                handleBack={handleBack}
             />
             </div>
-            
         </div>
     )
 };

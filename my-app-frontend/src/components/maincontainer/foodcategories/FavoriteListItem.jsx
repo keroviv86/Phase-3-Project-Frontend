@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function FavoriteList({id, name,restaurant, image, category}){
+function FavoriteListItem({id, name,restaurant, image, category}){
     return (
         <div>
             {/* <ul class="list">
@@ -19,4 +19,4 @@ function FavoriteList({id, name,restaurant, image, category}){
     )
 }
 
-export default FavoriteList;
+export default FavoriteListItem;
