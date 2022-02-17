@@ -3,7 +3,7 @@ import FoodCard from './FoodCard';
 import SwipeButton from './SwipeButton';
 
 
-function FoodCollection({cart,setCart, displayArr, handleMoreFood, handleBack, foodItems}) {
+function FoodCollection({user,cart,setCart, displayArr, handleMoreFood, handleBack, foodItems}) {
 
     const foodItemFun = displayArr.map((food)=> (
         <FoodCard
@@ -31,6 +31,7 @@ function FoodCollection({cart,setCart, displayArr, handleMoreFood, handleBack, f
             cart={cart}
             setCart={setCart}
             foodItems={foodItems}
+            user={user}
         
             />
             </div>

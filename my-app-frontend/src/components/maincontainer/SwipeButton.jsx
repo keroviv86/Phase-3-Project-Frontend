@@ -1,4 +1,4 @@
-import React from "react"; 
+import React, {useState} from "react"; 
 import ReplayIcon from "@material-ui/icons/Replay";
 import CloseIcon from "@material-ui/icons/Close";
 import StarRateIcon from "@material-ui/icons/StarRate";
@@ -9,16 +9,14 @@ import { Icon } from "@material-ui/core";
 
 
 
-function SwipeButton({ foodItems, handleMoreFood, handleBack, handleSuperLike}){
-    // const superLike = handleOnClick(e)
+function SwipeButton({user, foodItems, handleMoreFood, handleBack, handleSuperLike}){
+    const[currentUser, setCurrentUser] =useState(user[0])
+    console.log(currentUser)
 
    function onHandleMoreFood(){
        handleMoreFood(foodItems)
    }
 
-//    function onHandleSuperLike(e){
-//        handleSuperLike(foodItems)
-//    }
 
 
 

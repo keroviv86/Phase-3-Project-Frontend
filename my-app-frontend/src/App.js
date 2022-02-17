@@ -27,6 +27,7 @@ function App() {
   const [pizza, setPizza] = useState([])
   const [pastry, setPastry] = useState([])
   const [taco, setTaco] = useState([])
+  const [user, setUser] = useState([])
 
 
   // these hold the position in the array of foods
@@ -68,6 +69,16 @@ function App() {
     .then(data=> setPastry(data))
   }, [])  
 
+  useEffect(()=> {
+    fetch('http://localhost:9292/user/')
+    .then(res=>res.json())
+    .then(data=> setUser(data))
+  }, [])  
+
+
+
+
+
   // SwipeButton Functionality
   const [position, setPosition]= useState(0)
   const [cart, setCart]= useState([])
@@ -106,6 +117,7 @@ function App() {
             foodItems= {food}
             cart ={cart}
             setCart={setCart}
+            user={user}
         />}/>
 
         {/* NavBar */}

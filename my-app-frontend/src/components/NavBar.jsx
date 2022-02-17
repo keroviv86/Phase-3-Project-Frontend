@@ -19,29 +19,29 @@ export default function NavBar() {
         <div className="nav_bar"> 
           <ul>
             <li>
-            <NavLink activeClassName="nav_bar_burger" to="/" exact className="button" activeStyle={{ textDecoration: 'none' }}> All Cuisines </NavLink>
+            <NavLink activeClassName="nav_bar_burger" to="/" exact className="nav-link" activeStyle={{ textDecoration: 'none' }}> All Cuisines </NavLink>
             </li>
             <li>
-            <NavLink to="/favorites" exact className="button"> Favorites </NavLink>
+            <NavLink to="/favorites" exact className="nav-link"> Favorites </NavLink>
             </li>
             <li>
-            <NavLink to="/burger" exact className="button"
+            <NavLink to="/burger" exact className="nav-link"
             activeStyle={{
               textDecoration: 'none'
               }}
             > Burgers </NavLink>
             </li>
             <li>
-            <NavLink to="/pizza" exact className="button"> Pizzas </NavLink>
+            <NavLink to="/pizza" exact className="nav-link"> Pizzas </NavLink>
             </li>
             <li>
-            <NavLink to="/ramen" exact className="button"> Ramen </NavLink>
+            <NavLink to="/ramen" exact className="nav-link"> Ramen </NavLink>
             </li>
             <li>
-            <NavLink to="/pastry" exact className="button"> Pastries </NavLink>
+            <NavLink to="/pastry" exact className="nav-link"> Pastries </NavLink>
             </li>
             <li>
-            <NavLink to="/taco" exact className="button"> Tacos </NavLink>
+            <NavLink to="/taco" exact className="nav-link"> Tacos </NavLink>
             </li>
 
          </ul>

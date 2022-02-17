@@ -2,6 +2,13 @@
 background-color: linear-gradient(red , lightgrey);
 } */
 
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap");
+
+body {
+    background: linear-gradient(to right, #439cfb, #b9dcf2, #f29ffa);
+    font-family: "Nunito", sans-serif;
+  }
+
 .title {
     text-align: center;
     color: black;
@@ -19,7 +26,7 @@ background-color: linear-gradient(red , lightgrey);
 
 .dark {
     color: #dcdcdc;
-    background-color: #292929;
+    background: linear-gradient(to right, #292929, #292929);
   }
 
 .card{
@@ -50,8 +57,7 @@ background-color: linear-gradient(red , lightgrey);
 
 
 li:hover {
-    background-color: #111;
-    color: white;
+    background-color: #a2d2ff;
   }
 
 /* BUTTONS */
@@ -118,11 +124,21 @@ li:hover {
 
 /* NAVBAR */
 
+.nav-link {
+    text-decoration: none;
+    color: #f1f4f7;
+  }
+  
+  .nav-link:hover {
+    /* background-color: #915dd1; */
+    color: #7209b7;
+  }
+
 #sidebar {
     position: absolute;
     width: 300px;
     height: 100%;
-    background: orange;
+    background: #bde0fe;
     left: -300px;
     transition: 0.4s;
     z-index:1;
@@ -146,7 +162,7 @@ li:hover {
 .toggle-btn span {
     width: 45px;
     height: 4px;
-    background: #000;
+    background: #f29ffa;
     display: block;
     margin-top: 4px;
   }
@@ -167,7 +183,7 @@ li:hover {
 }
  
 .profiles {
-    background-color: #fff;
+    background-color: rgb(255, 255, 255, 0.0);
     border-radius: 0 0 12px 12px;
     padding: 15px 15px 20px;
     display: grid;
@@ -183,7 +199,7 @@ li:hover {
     box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
     cursor: pointer;
     transition: transform .25s cubic-bezier(.7,.98,.86,.98), box-shadow .25s cubic-bezier(.7,.98,.86,.98);
-    background-color: #fff;
+    background-color: rgb(255, 255, 255, 0.8);
 }
     
 .profile:hover{
@@ -193,6 +209,7 @@ li:hover {
 }
 .picture {
     max-width: 100%;
+    height:70px;
     width: 60px;
     border-radius: 50%;
     box-shadow: 0 0 0 10px #ebeef3, 0 0 0 22px #f3f4f6;
