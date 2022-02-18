@@ -21,7 +21,6 @@ function FoodCollection({displayArr, handleLike, handleDislike, handleBack}) {
 
     return(
         <div>
-            <h1>Oishii Card</h1>
             <div className="food-container">
             {foodCardToDisplay}
             <SwipeButton
