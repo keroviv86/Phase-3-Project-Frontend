@@ -8,7 +8,7 @@ import NavBar from './components/NavBar';
 import Login from './components/header/Login';
 import Favorites from './components/maincontainer/foodcategories/Favorites';
 
-import React, {useState, useEffect, useDebugValue} from 'react';
+import React, {useState, useEffect} from 'react';
 
 
 function App() {
@@ -16,9 +16,9 @@ function App() {
   const [food, setFood] = useState([])
   const [category, setCategory] = useState('')
   const [userData, setUserData] = useState({})
+
    // SwipeButton Functionality
    const [position, setPosition]= useState(0)
-   const [cart, setCart]= useState([])
 
   //fetching the data
   useEffect(()=> {
@@ -28,12 +28,10 @@ function App() {
   }, [category])
 
   useEffect(()=> {
-    fetch('http://localhost:9292/users/1')
+    fetch('http://localhost:9292/user/1')
     .then(res=>res.json())
     .then(data=> setUserData(data))
   }, [])
-
- 
 
   const displayArr = [food[position]]
 
@@ -49,29 +47,20 @@ function App() {
   function handleLike() {
       incrementPosition()
       // setCart([...cart, food[position]])
-
-      const allFoods = [...userData['foods'], food[position]]
+      const currentFood = food[position]
+      const allFoods = [...userData['foods'], currentFood]
       const addedToUsers= {...userData, foods: allFoods}
       setUserData(addedToUsers)
-      console.log(userData)
-      console.log(userData["foods"])
       
-      fetch(`http://localhost:9292/users/${userData["id"]}`, {
-        method: "PATCH",
+      fetch(`http://localhost:9292/likes/${currentFood['id']}/${userData["id"]}`, {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-         foods: userData["foods"]
-        }),
+        body: "",
       })
         .then((r) => r.json())
-
-     
   }
-
-
-
 
   function handleBack(e){
       setPosition((prevPosition)=> (prevPosition - 1) % food.length)

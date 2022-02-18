@@ -9,7 +9,7 @@ console.log(mapData.name)
     <div className="details">
         <DetailContainer/>
         <ul>
-            <li className = "item-name"> Try {mapData.name} </li> 
+            <li className = "item-name"> {mapData.name} </li> 
             <li className = "restaurant-name">{mapData["restaurant"]}</li>
               <li className = "address" >Here at {mapData.address}</li>
             <li><button><a href={`tel:${mapData.phone}`}>Click to Call</a></button></li>
