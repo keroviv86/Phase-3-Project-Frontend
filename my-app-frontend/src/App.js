@@ -16,6 +16,9 @@ function App() {
   const [food, setFood] = useState([])
   const [category, setCategory] = useState('')
   const [userData, setUserData] = useState({})
+   // SwipeButton Functionality
+   const [position, setPosition]= useState(0)
+   const [cart, setCart]= useState([])
 
   //fetching the data
   useEffect(()=> {
@@ -30,9 +33,7 @@ function App() {
     .then(data=> setUserData(data))
   }, [])
 
-  // SwipeButton Functionality
-  const [position, setPosition]= useState(0)
-  const [cart, setCart]= useState([])
+ 
 
   const displayArr = [food[position]]
 
@@ -47,13 +48,30 @@ function App() {
 
   function handleLike() {
       incrementPosition()
-      setCart([...cart, food[position]])
+      // setCart([...cart, food[position]])
+
       const allFoods = [...userData['foods'], food[position]]
       const addedToUsers= {...userData, foods: allFoods}
       setUserData(addedToUsers)
       console.log(userData)
+      console.log(userData["foods"])
+      
+      fetch(`http://localhost:9292/users/${userData["id"]}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+         foods: userData["foods"]
+        }),
+      })
+        .then((r) => r.json())
+
      
   }
+
+
+
 
   function handleBack(e){
       setPosition((prevPosition)=> (prevPosition - 1) % food.length)
@@ -71,6 +89,8 @@ function App() {
             handleLike={handleLike}
             handleDislike={incrementPosition}
             handleBack={handleBack}
+            
+
            
           />
         }/>

@@ -4,7 +4,7 @@ import SwipeButton from './SwipeButton';
 
 
 function FoodCollection({displayArr, handleLike, handleDislike, handleBack}) {
-    console.log(displayArr)
+    
     const foodCardToDisplay = displayArr.map((food)=> (
         <FoodCard
             className="swipe"
@@ -15,7 +15,7 @@ function FoodCollection({displayArr, handleLike, handleDislike, handleBack}) {
             restaurant={food.restaurant_name}
             image={food.image}
             category={food.category}
-            preventSwipe={['up', 'down']}
+            
         />
     ))
 
@@ -28,6 +28,7 @@ function FoodCollection({displayArr, handleLike, handleDislike, handleBack}) {
                 handleDislike={handleDislike}
                 handleLike={handleLike}
                 handleBack={handleBack}
+               
             />
             </div>
         </div>

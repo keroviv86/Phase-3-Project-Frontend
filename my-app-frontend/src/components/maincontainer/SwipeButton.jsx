@@ -12,8 +12,6 @@ import { Icon } from "@material-ui/core";
 function SwipeButton({handleLike, handleDislike, handleBack}){
     
     
-
-
     return(
         <div className="swipe-buttons">
             <IconButton onClick={handleBack} className="repeat">

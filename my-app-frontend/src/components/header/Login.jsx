@@ -7,17 +7,18 @@ function Login(){
 
     return(
         <div className="details">
-          <h2 className="black">
+          <h2 className="head">
             New to our site?
           </h2> 
-          <h3> Sign up here </h3>
+          <h3 className="sign" align="center"> Sign up here </h3>
           <form onSubmit={handleSubmit}>
                 <label htmlFor="new-email-name"></label>
-                <input  
+                <input  className="pass" 
                     placeholder="New email..." name="new-email-name" 
                     type="text">
                 </input>
-                <button className="form-input" type="submit">Sign Up!</button> 
+                <button className= "submit" align= "center">Sign Up!</button>
+                <p className="loginbtn" align="center"><a href={'#top'}>Login</a></p> 
             </form>
         </div>
     )
