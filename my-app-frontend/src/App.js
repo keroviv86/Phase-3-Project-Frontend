@@ -52,14 +52,17 @@ function App() {
       const addedToUsers= {...userData, foods: allFoods}
       setUserData(addedToUsers)
       
-      fetch(`http://localhost:9292/likes/${currentFood['id']}/${userData["id"]}`, {
+      fetch(`http://localhost:9292/like`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: "",
+        body: JSON.stringify({
+          user_id: userData["id"],
+          food_id: currentFood["id"]
+        }),
       })
-        .then((r) => r.json())
+        // .then((r) => r.json())
   }
 
   function handleBack(e){
