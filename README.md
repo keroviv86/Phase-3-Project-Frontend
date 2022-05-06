@@ -15,7 +15,7 @@ A food tinder app called Oishii Me Up where a user can swipe left or right on a 
 # Project Wireframe
 ![wireframe](wireframe3.png)
 
-# Relational Database
+# Entity Relationship Map
 ![database](tables3.png)
 
 
