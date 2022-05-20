@@ -22,13 +22,13 @@ function App() {
 
   //fetching the data
   useEffect(()=> {
-    fetch('http://localhost:9292/foods/' + category)
+    fetch('https://phase-3-backend.herokuapp.com/foods/' + category)
     .then(res=>res.json())
     .then(data=>setFood(data))
   }, [category])
 
   useEffect(()=> {
-    fetch('http://localhost:9292/user/1')
+    fetch('https://phase-3-backend.herokuapp.com/user/1')
     .then(res=>res.json())
     .then(data=> setUserData(data))
   }, [])
@@ -52,7 +52,7 @@ function App() {
       const addedToUsers= {...userData, foods: allFoods}
       setUserData(addedToUsers)
       
-      fetch(`http://localhost:9292/like`, {
+      fetch(`https://phase-3-backend.herokuapp.com/like`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -12,27 +12,15 @@ function Favorites({cartItems}) {
 
     const [showMap, setShowMap]= useState(false)
 
-    // const [toggleClass, setToggleClass] = useState(false)
-
-    // return <div className={showMap ? 'active' : ''} /> 
+ 
 
     function togglePopup(){
       setShowMap((showMap)=> !showMap)
-      // className={showMap ? 'active' : ''}
+     
     }
     console.log(showMap)
 
-    // function togglePopup(){
-
-    //  document.getElementById("popup-1").classList.toggle("active");
-    //   console.log('hi')
-
-    // document.addEventListener('keydown', function(event){
-    //    if(event.key === "Escape"){
-    // document.getElementById("popup-1").classList.toggle("active");
-    //     }
-    //   });
-    // }
+  
 
     const favoritesListItems = cartItems.map((cartFood)=>(
       <FavoriteList

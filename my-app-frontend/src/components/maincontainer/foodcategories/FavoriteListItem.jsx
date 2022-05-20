@@ -7,7 +7,6 @@ function FavoriteListItem({name,restaurant, image, id, phone, address, handleFav
         togglePopup()
     }
     
-
     return (
         <div>
             {/* <ul class="list">
